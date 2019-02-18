@@ -86,17 +86,31 @@ class GeografijaDAOTest {
         GeografijaDAO.removeInstance();
         File dbfile = new File("baza.db");
         dbfile.delete();
+
+        GeografijaDAO dao = GeografijaDAO.getInstance();
+
         Grad sarajevo = new Grad();
         sarajevo.setNaziv("Sarajevo");
         sarajevo.setBrojStanovnika(500000);
+        // Privremeno stavljamo Francusku jer BiH još uvijek nije dodana
+        sarajevo.setDrzava(dao.nadjiDrzavu("Francuska"));
+        dao.dodajGrad(sarajevo);
+
+        // Vršimo upit nadjiGrad da dobijemo validan ID grada
+        sarajevo = dao.nadjiGrad("Sarajevo");
+
+        // Dodajemo državu u bazu
         Drzava bih = new Drzava();
         bih.setNaziv("Bosna i Hercegovina");
         bih.setGlavniGrad(sarajevo);
-        sarajevo.setDrzava(bih);
-
-        GeografijaDAO dao = GeografijaDAO.getInstance();
         dao.dodajDrzavu(bih);
-        dao.dodajGrad(sarajevo);
+
+        // Vršimo upit nadjiDrzavu da dobijemo validan ID države
+        bih = dao.nadjiDrzavu("Bosna i Hercegovina");
+
+        // Ažuriramo grad
+        sarajevo.setDrzava(bih);
+        dao.izmijeniGrad(sarajevo);
 
         // Provjera
         Grad proba = dao.glavniGrad("Bosna i Hercegovina");

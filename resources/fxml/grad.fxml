@@ -38,7 +38,7 @@
       <Label text="Država:" GridPane.rowIndex="2" />
       <ChoiceBox fx:id="choiceDrzava" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-      <Label fx:id="lZagadjenost" text="Zagadjenost:"  GridPane.rowIndex="3"/>
+      <Label fx:id="lZagadjenost" text="Zagađenost:"  GridPane.rowIndex="3"/>
       <Slider fx:id="sliderZagadjenost" GridPane.columnIndex="1" GridPane.rowIndex="3" max="10" min="1"/>
 
       <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="4">

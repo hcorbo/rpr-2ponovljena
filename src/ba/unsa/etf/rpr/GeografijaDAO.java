@@ -27,16 +27,16 @@ public class GeografijaDAO {
 
         try
         {
-            glavniGradUpit = conn.prepareStatement("SELECT grad.id, grad.naziv, grad.broj_stanovnika, grad.drzava, grad.zagadjenost " +
-                                "FROM grad, drzava WHERE grad.drzava=drzava.id AND drzava.naziv=?");
+            glavniGradUpit = conn.prepareStatement("SELECT grad.id, grad.naziv, grad.broj_stanovnika, grad.drzave, grad.zagadjenost " +
+                                "FROM grad, drzave WHERE grad.drzave=drzave.id AND drzave.naziv=?");
         }
         catch (SQLException e)
         {
             regenerisiBazu();
             try
             {
-                glavniGradUpit = conn.prepareStatement("SELECT grad.id, grad.naziv, grad.broj_stanovnika, grad.drzava, grad.zagadjenost " +
-                        " FROM grad, drzava WHERE grad.drzava=drzava.id AND drzava.naziv=?");
+                glavniGradUpit = conn.prepareStatement("SELECT grad.id, grad.naziv, grad.broj_stanovnika, grad.drzave, grad.zagadjenost " +
+                        " FROM grad, drzave WHERE grad.drzave=drzave.id AND drzave.naziv=?");
             }
             catch (SQLException e1)
             {
@@ -45,22 +45,22 @@ public class GeografijaDAO {
         }
 
         try {
-            dajDrzavuUpit = conn.prepareStatement("SELECT * FROM drzava WHERE id=?");
+            dajDrzavuUpit = conn.prepareStatement("SELECT * FROM drzave WHERE id=?");
             dajGradUpit = conn.prepareStatement("SELECT * FROM grad WHERE id=?");
-            obrisiGradoveZaDrzavuUpit = conn.prepareStatement("DELETE FROM grad WHERE drzava=?");
-            obrisiDrzavuUpit = conn.prepareStatement("DELETE FROM drzava WHERE id=?");
+            obrisiGradoveZaDrzavuUpit = conn.prepareStatement("DELETE FROM grad WHERE drzave=?");
+            obrisiDrzavuUpit = conn.prepareStatement("DELETE FROM drzave WHERE id=?");
             obrisiGradUpit = conn.prepareStatement("DELETE FROM grad WHERE id=?");
-            nadjiDrzavuUpit = conn.prepareStatement("SELECT * FROM drzava WHERE naziv=?");
+            nadjiDrzavuUpit = conn.prepareStatement("SELECT * FROM drzave WHERE naziv=?");
             nadjiGradUpit = conn.prepareStatement("SELECT * FROM grad WHERE naziv=?");
             dajGradoveUpit = conn.prepareStatement("SELECT * FROM grad ORDER BY broj_stanovnika DESC");
-            dajDrzaveUpit = conn.prepareStatement("SELECT * FROM drzava ORDER BY naziv");
+            dajDrzaveUpit = conn.prepareStatement("SELECT * FROM drzave ORDER BY naziv");
 
             dodajGradUpit = conn.prepareStatement("INSERT INTO grad VALUES(?,?,?,?,?)");
             odrediIdGradaUpit = conn.prepareStatement("SELECT MAX(id)+1 FROM grad");
-            dodajDrzavuUpit = conn.prepareStatement("INSERT INTO drzava VALUES(?,?,?)");
-            odrediIdDrzaveUpit = conn.prepareStatement("SELECT MAX(id)+1 FROM drzava");
+            dodajDrzavuUpit = conn.prepareStatement("INSERT INTO drzave VALUES(?,?,?)");
+            odrediIdDrzaveUpit = conn.prepareStatement("SELECT MAX(id)+1 FROM drzave");
 
-            promijeniGradUpit = conn.prepareStatement("UPDATE grad SET naziv=?, broj_stanovnika=?, drzava=?, zagadjenost=?" +
+            promijeniGradUpit = conn.prepareStatement("UPDATE grad SET naziv=?, broj_stanovnika=?, drzave=?, zagadjenost=?" +
                                                             "WHERE id=?");
         }
         catch (SQLException e)

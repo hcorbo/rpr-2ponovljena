@@ -218,9 +218,12 @@ public class IspitGlavnaTest {
 
         xml = new File("geografija.xml");
         String content = "";
-        try {
+        try
+        {
             content = new String(Files.readAllBytes(Paths.get(xml.getPath())));
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             fail("Nije uspjelo čitanje XML datoteke");
         }
 
@@ -318,7 +321,8 @@ public class IspitGlavnaTest {
             XMLDecoder decoder = new XMLDecoder(new FileInputStream("geografija.xml"));
             geografija = (Geografija)decoder.readObject();
             decoder.close();
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e)
+        {
             fail("Dekodiranje XML datoteke nije uspjelo");
         }
 

@@ -15,7 +15,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import java.beans.XMLEncoder;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -28,8 +30,11 @@ public class GlavnaController {
     public TableColumn colGradNaziv;
     public TableColumn colGradStanovnika;
     public TableColumn<Grad,String> colGradDrzava;
+    public TableColumn colGradZagadjenost;
     private GeografijaDAO dao;
     private ObservableList<Grad> listGradovi;
+
+    Geografija geografija = new Geografija();
 
     public GlavnaController() {
         dao = GeografijaDAO.getInstance();
@@ -42,6 +47,9 @@ public class GlavnaController {
         colGradId.setCellValueFactory(new PropertyValueFactory("id"));
         colGradNaziv.setCellValueFactory(new PropertyValueFactory("naziv"));
         colGradStanovnika.setCellValueFactory(new PropertyValueFactory("brojStanovnika"));
+
+        colGradZagadjenost.setCellValueFactory(new PropertyValueFactory("zagadjenost"));
+
         colGradDrzava.setCellValueFactory(data -> new SimpleStringProperty(data.getValue().getDrzava().getNaziv()));
     }
 
@@ -146,5 +154,28 @@ public class GlavnaController {
         File dbfile = new File("baza.db");
         dbfile.delete();
         dao = GeografijaDAO.getInstance();
+    }
+
+    public void zapisi(ActionEvent actionEvent)
+    {
+        geografija.setGradovi(dao.gradovi());
+        geografija.setDrzave(dao.drzave());
+
+        XMLEncoder izlaz = null;
+
+        try
+        {
+            izlaz = new XMLEncoder(new FileOutputStream("geografija.xml"));
+            izlaz.writeObject(geografija);
+        }
+        catch (Exception e)
+        {
+            e.getMessage();
+        }
+        finally
+        {
+            izlaz.close();
+        }
+
     }
 }

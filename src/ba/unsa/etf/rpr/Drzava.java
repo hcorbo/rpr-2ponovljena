@@ -1,6 +1,9 @@
 package ba.unsa.etf.rpr;
 
-public class Drzava {
+import java.io.Serializable;
+
+public class Drzava implements Serializable
+{
     private int id;
     private String naziv;
     private Grad glavniGrad;

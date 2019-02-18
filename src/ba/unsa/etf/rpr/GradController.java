@@ -115,7 +115,7 @@ public class GradController {
         grad.setBrojStanovnika(Integer.parseInt(fieldBrojStanovnika.getText()));
         grad.setDrzava(choiceDrzava.getValue());
 
-        if(iZagadjenost < 1 || iZagadjenost >10)
+        if(iZagadjenost < 1 || iZagadjenost > 10)
         {
             grad.setZagadjenost(1);
         }

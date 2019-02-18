@@ -1,20 +1,46 @@
 package ba.unsa.etf.rpr;
 
-public class Grad {
+public class Grad
+{
+    //ATRIBUTI
     private int id;
     private String naziv;
     private int brojStanovnika;
     private Drzava drzava;
+     private int zagadjenost;
 
-    public Grad(int id, String naziv, int brojStanovnika, Drzava drzava) {
+    public Grad(int id, String naziv, int brojStanovnika, Drzava drzava, int zagadjenost) {
         this.id = id;
         this.naziv = naziv;
         this.brojStanovnika = brojStanovnika;
         this.drzava = drzava;
+
+        if(zagadjenost > 10 || zagadjenost < 1)
+            throw new IllegalArgumentException();
+
+        this.zagadjenost = zagadjenost;
     }
 
     public Grad() {
     }
+
+    //GETTERI I SETTERI
+    public int getZagadjenost()
+    {
+        if(zagadjenost > 10 || zagadjenost < 1)
+            throw new IllegalArgumentException();
+
+        return zagadjenost;
+    }
+
+    public void setZagadjenost(int zagadjenost)
+    {
+        if(zagadjenost > 10 || zagadjenost < 1)
+            throw new IllegalArgumentException();
+
+        this.zagadjenost = zagadjenost;
+    }
+
 
     public int getId() {
         return id;

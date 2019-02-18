@@ -12,7 +12,10 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.control.ButtonBar?>
-<GridPane hgap="5.0" vgap="5.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.control.Slider?>
+
+<!--fx:controller="ba.unsa.etf.rpr.GradController" -->
+<GridPane  hgap="5.0" vgap="5.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
    <stylesheets>
       <URL value="@/css/forme.css" />
    </stylesheets>
@@ -34,7 +37,11 @@
       <TextField fx:id="fieldBrojStanovnika" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Label text="Država:" GridPane.rowIndex="2" />
       <ChoiceBox fx:id="choiceDrzava" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="3">
+
+      <Label fx:id="lZagadjenost" text="Zagadjenost:"  GridPane.rowIndex="3"/>
+      <Slider fx:id="sliderZagadjenost" GridPane.columnIndex="1" GridPane.rowIndex="3" max="10" min="1"/>
+
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="4">
          <buttons>
             <Button fx:id="btnOk" onAction="#clickOk" mnemonicParsing="false" text="Ok" />
             <Button fx:id="btnCancel" onAction="#clickCancel" mnemonicParsing="false" text="Cancel" />

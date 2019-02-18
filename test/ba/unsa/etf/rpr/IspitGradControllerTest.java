@@ -1,4 +1,4 @@
-/*package ba.unsa.etf.rpr;
+package ba.unsa.etf.rpr;
 
 
 import javafx.application.Platform;
@@ -118,4 +118,3 @@ public class IspitGradControllerTest {
         assertEquals(8, grad.getZagadjenost());
     }
 }
-*/

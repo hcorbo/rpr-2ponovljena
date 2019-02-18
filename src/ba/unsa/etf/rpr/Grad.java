@@ -9,7 +9,7 @@ public class Grad implements Serializable
     private String naziv;
     private int brojStanovnika;
     private Drzava drzava;
-    private int zagadjenost;
+    private int zagadjenost = 1;
 
     public Grad(int id, String naziv, int brojStanovnika, Drzava drzava, int zagadjenost) {
         this.id = id;

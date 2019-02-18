@@ -61,7 +61,7 @@ public class GeografijaDAO {
             odrediIdDrzaveUpit = conn.prepareStatement("SELECT MAX(id)+1 FROM drzave");
 
             promijeniGradUpit = conn.prepareStatement("UPDATE grad SET naziv=?, broj_stanovnika=?, drzave=?, zagadjenost=?" +
-                                                            "WHERE id=?");
+                                                            " WHERE id=?");
         }
         catch (SQLException e)
         {

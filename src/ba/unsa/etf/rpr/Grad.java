@@ -29,9 +29,6 @@ public class Grad implements Serializable
     //GETTERI I SETTERI
     public int getZagadjenost()
     {
-        if(zagadjenost > 10 || zagadjenost < 1)
-            throw new IllegalArgumentException();
-
         return zagadjenost;
     }
 
@@ -75,6 +72,7 @@ public class Grad implements Serializable
     public void setDrzava(Drzava drzava) {
         this.drzava = drzava;
     }
+
 
     @Override
     public String toString() { return naziv; }

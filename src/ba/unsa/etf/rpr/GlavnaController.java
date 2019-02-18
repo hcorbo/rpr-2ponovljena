@@ -16,6 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.beans.XMLEncoder;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -165,7 +166,7 @@ public class GlavnaController {
 
         try
         {
-            izlaz = new XMLEncoder(new FileOutputStream("geografija.xml"));
+            izlaz = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("geografija.xml")));
             izlaz.writeObject(geografija);
         }
         catch (Exception e)
